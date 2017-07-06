@@ -16,6 +16,7 @@
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
+  exports.rx = undefined;
 
   var _underscore2 = _interopRequireDefault(_underscore);
 
@@ -322,7 +323,7 @@
 
     rx._depMgr = depMgr = new DepMgr();
 
-    var Ev = rx.Ev = function () {
+    var Ev = function () {
       function Ev(init, observable) {
         _classCallCheck(this, Ev);
 
@@ -380,6 +381,8 @@
 
       return Ev;
     }();
+
+    rx.Ev = Ev;
 
     rx.skipFirst = function (f) {
       var first = true;
@@ -2814,6 +2817,6 @@
   };
   // end rxFactory definition
 
-  exports.default = rxFactory(_underscore2.default);
+  var rx = exports.rx = rxFactory(_underscore2.default);
 });
 

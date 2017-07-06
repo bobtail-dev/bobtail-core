@@ -101,7 +101,7 @@ let rxFactory = function(_) {
 
   rx._depMgr = (depMgr = new DepMgr());
 
-  let Ev = (rx.Ev = class Ev {
+  let Ev = class Ev {
     constructor(init, observable) {
       this.observable = observable;
       this.init = init;
@@ -139,7 +139,9 @@ let rxFactory = function(_) {
       try { return context(); }
       finally {this.unsub(uid); }
     }
-  });
+  };
+
+  rx.Ev = Ev;
 
   rx.skipFirst = function(f) {
     let first = true;
@@ -1325,4 +1327,4 @@ let rxFactory = function(_) {
 };
 // end rxFactory definition
 
-export default rxFactory(_);
+export let rx = rxFactory(_);
