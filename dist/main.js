@@ -2499,6 +2499,8 @@
       return flattenHelper(x.get());
     } else if (x instanceof Set) {
       return flattenHelper(Array.from(x));
+    } else if (_underscore2.default.isFunction(x)) {
+      return flattenHelper(bind(x).get());
     } else if (_underscore2.default.isArray(x)) {
       return x.map(function (x_k) {
         return flattenHelper(x_k);

@@ -1163,6 +1163,7 @@ let flattenHelper = function(x) {
   } else if (x instanceof ObsSet) { return flattenHelper(Array.from(x.values()));
   } else if (x instanceof ObsCell) { return flattenHelper(x.get());
   } else if (x instanceof Set) { return flattenHelper(Array.from(x));
+  } else if (_.isFunction(x)) { return flattenHelper(bind(x).get());
   } else if (_.isArray(x)) { return x.map(x_k => flattenHelper(x_k));
   } else { return x; }
 };
